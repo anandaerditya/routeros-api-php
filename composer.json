@@ -1,0 +1,24 @@
+{
+    "name": "anandaerditya/routeros-api-php",
+    "description": "Mikrotik RouterOS API Communicator Module for PHP",
+    "type": "library",
+    "require": {
+        "evilfreelancer/routeros-api-php": "^1.5"
+    },
+    "require-dev": {
+        "evilfreelancer/routeros-api-php": "^1.5"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Anandaerditya\\RouterOS\\": "library/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ananda Erditya",
+			"role": "Developer"
+        }
+    ],
+    "minimum-stability": "stable"
+}
