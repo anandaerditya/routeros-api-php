@@ -9,7 +9,7 @@ trait DHCPServer
      * @param array $arguments
      * @return mixed
      */
-    public function dhcp_server(string|array $command_parameters = 'print', array $arguments = []): mixed
+    public function ip_dhcp_server(string|array $command_parameters = 'print', array $arguments = []): mixed
     {
         $command = $command_parameters;
         $available_commands = [
@@ -49,7 +49,7 @@ trait DHCPServer
      * @param array $arguments
      * @return mixed
      */
-    public function dhcp_server_network(string|array $command_parameters = 'print', array $arguments = []): mixed
+    public function ip_dhcp_server_network(string|array $command_parameters = 'print', array $arguments = []): mixed
     {
         $command = $command_parameters;
         $available_commands = [
