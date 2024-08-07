@@ -9,7 +9,7 @@ trait Firewall
      * @param array $arguments
      * @return mixed
      */
-    public function firewall_filter(string|array $command_parameters = 'print', array $arguments = []): mixed
+    public function ip_firewall_filter(string|array $command_parameters = 'print', array $arguments = []): mixed
     {
         $command = $command_parameters;
         $available_commands = [
@@ -62,7 +62,7 @@ trait Firewall
      * @param array $arguments
      * @return mixed
      */
-    public function firewall_nat(string|array $command_parameters = 'print', array $arguments = []): mixed
+    public function ip_firewall_nat(string|array $command_parameters = 'print', array $arguments = []): mixed
     {
         $command = $command_parameters;
         $available_commands = [
