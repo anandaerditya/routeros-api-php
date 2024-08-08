@@ -26,7 +26,7 @@ Under composer, just copy this command to begin add this library into your proje
 
 ## Using the Library
 
-If you are using Composer Project such Laravel Framework, you can just call the library under `Erditya\RouterOSInstance` class. As follows :
+If you are using Composer Project such Laravel Framework, you can just call the library under `Erditya\RouterOSInstance` class. As follows : 
 
 
 ```php
@@ -55,7 +55,7 @@ If you are using Composer Project such Laravel Framework, you can just call the 
         # Update address item in ID *2
         var_dump($router->ip_addresses('set', [
             '.id' => '*2',
-            'comment' => 'Castroll - Main Bridge'
+            'comment' => 'Some Comments'
         ]));
     }
 ```
@@ -86,7 +86,7 @@ Or, another way to approach :
     # Update address item in ID *2
     var_dump($router->ip_addresses('set', [
         '.id' => '*2',
-        'comment' => 'Castroll - Main Bridge'
+        'comment' => 'Some Comments'
     ]));
 ```
 
