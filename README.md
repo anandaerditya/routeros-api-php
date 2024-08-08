@@ -1,6 +1,8 @@
-# Milrotik RouterOS API PHP
+# Mikrotik RouterOS API PHP Module
 
-![Static Badge](https://img.shields.io/badge/min_php_ver-7.4_and_up-f39c12?style=for-the-badge)
+![Static Badge](https://img.shields.io/badge/php-7.2_and_up-e74c3c?style=for-the-badge)
+![Packagist Version](https://img.shields.io/packagist/v/anandaerditya/routeros-api-php?style=for-the-badge&logo=packagist&logoColor=ffffff&color=%23f28d1a&link=https%3A%2F%2Fpackagist.org%2Fpackages%2Fanandaerditya%2Frouteros-api-php)
+![GitHub Release](https://img.shields.io/github/v/release/anandaerditya/routeros-api-php?style=for-the-badge&logo=github&label=github&color=1abc9c&link=https%3A%2F%2Fgithub.com%2Fanandaerditya%2Frouteros-api-php)
 
 This library is using API Client Communicator under PHP Socket, thanks to the repository from [EvilFreelance](https://github.com/EvilFreelancer/routeros-api-php). This library provides built-in methods based on the available configuration under Winbox, with their respective commands and parameters. At the moment, this library supports RouterBoard and Cloud Router Switch with pre-6.43 and post-6.43 versions of RouterOS, as mentioned [in this repository](https://github.com/EvilFreelancer/routeros-api-php).
 
@@ -24,7 +26,7 @@ Under composer, just copy this command to begin add this library into your proje
 
 ## Using the Library
 
-If you are using Laravel Framework, you can just call the library under `Erditya\RouterOSInstance` class. As follows
+If you are using Composer Project such Laravel Framework, you can just call the library under `Erditya\RouterOSInstance` class. As follows :
 
 
 ```php
@@ -58,7 +60,7 @@ If you are using Laravel Framework, you can just call the library under `Erditya
     }
 ```
 
-Or, another way to do it
+Or, another way to approach :
 
 ```php
     use Erditya\RouterOSInstance;
