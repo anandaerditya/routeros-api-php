@@ -26,7 +26,7 @@ Under composer, just copy this command to begin add this library into your proje
 
 ## Using the Library
 
-If you are using Composer Project such Laravel Framework, you can just call the library under `Erditya\RouterOSInstance` class. As follows :
+If you are using Composer Project such Laravel Framework, you can just call the library under `Erditya\RouterOSInstance` class. As follows : 
 
 
 ```php
