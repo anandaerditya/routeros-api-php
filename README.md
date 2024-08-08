@@ -55,7 +55,7 @@ If you are using Composer Project such Laravel Framework, you can just call the 
         # Update address item in ID *2
         var_dump($router->ip_addresses('set', [
             '.id' => '*2',
-            'comment' => 'Castroll - Main Bridge'
+            'comment' => 'Some Comments'
         ]));
     }
 ```
