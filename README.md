@@ -86,7 +86,7 @@ Or, another way to approach :
     # Update address item in ID *2
     var_dump($router->ip_addresses('set', [
         '.id' => '*2',
-        'comment' => 'Castroll - Main Bridge'
+        'comment' => 'Some Comments'
     ]));
 ```
 
