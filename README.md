@@ -1,6 +1,6 @@
 # Mikrotik RouterOS API PHP Module
 
-![Static Badge](https://img.shields.io/badge/php-7.2_and_up-e74c3c?style=for-the-badge)
+![Static Badge](https://img.shields.io/badge/php-8.0_and_up-e74c3c?style=for-the-badge)
 ![Packagist Version](https://img.shields.io/packagist/v/anandaerditya/routeros-api-php?style=for-the-badge&logo=packagist&logoColor=ffffff&color=%23f28d1a&link=https%3A%2F%2Fpackagist.org%2Fpackages%2Fanandaerditya%2Frouteros-api-php)
 ![GitHub Release](https://img.shields.io/github/v/release/anandaerditya/routeros-api-php?style=for-the-badge&logo=github&label=github&color=1abc9c&link=https%3A%2F%2Fgithub.com%2Fanandaerditya%2Frouteros-api-php)
 
@@ -10,7 +10,7 @@ This library is using API Client Communicator under PHP Socket, thanks to the re
 
 ## Requirements
 
-- `PHP` : Version 7.2 and up
+- `PHP` : Version 8.0 and up
 - `ext-sockets` : A Socket extension for PHP
 - `RouterOS` : **pre-6.43** and **post-6.43** (**RouterBoard** and **Cloud Router Switch**)
 

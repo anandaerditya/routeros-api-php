@@ -2,6 +2,8 @@
 
 namespace Erditya\Concerns\IP;
 
+use Erditya\Exceptions\ErrorException;
+
 trait Addresses
 {
     /**

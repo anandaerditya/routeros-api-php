@@ -3,7 +3,6 @@
 namespace Erditya;
 
 use Erditya\Concerns\Commands;
-use Erditya\Modules\Thematic;
 use RouterOS\Config;
 use RouterOS\Client;
 use RouterOS\Exceptions\BadCredentialsException;
@@ -89,7 +88,7 @@ class RouterOSInstance
             return $this->client?->query($query)->read() ?? false;
 
         } catch (QueryException|ClientException|ConfigException $exception) {
-            return false;
+            return $exception;
         }
     }
 
@@ -99,11 +98,6 @@ class RouterOSInstance
     public function is_connected(): bool
     {
         return !$this->client == null;
-    }
-
-    public function thematic():Thematic
-    {
-        return new Thematic();
     }
 
 
