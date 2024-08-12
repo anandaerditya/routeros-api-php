@@ -2,15 +2,19 @@
 
 namespace Erditya\Concerns\IP;
 
+use Erditya\Exceptions\ErrorException;
+
 trait Hotspot
 {
     /**
      * @param string|array $command_parameters
      * @param array $arguments
      * @return mixed
+     * @throws ErrorException
      */
     public function ip_hotspot_user_profiles(string|array $command_parameters = 'print', array $arguments = []): mixed
     {
+        $method_name = strtoupper(__FUNCTION__);
         $command = $command_parameters;
         $available_commands = [
             'add', 'edit', 'export',
@@ -39,19 +43,24 @@ trait Hotspot
         $parameter_differences = array_diff(array_keys($arguments), $available_parameters);
 
         if (in_array($command, $available_commands) && empty($parameter_differences)) {
-            return $this->send($command, 'ip/hotspot/user/profile', $arguments);
+            return $this->send($command, 'ip/hotspot/user/profile', $arguments, $method_name);
         }
 
-        return false;
+        $invalid_parameter = implode(', ', $parameter_differences);
+        $msg_available_params = implode(', ', $available_parameters);
+
+        throw new ErrorException("ERR::{$method_name} : Invalid parameter(s) {$invalid_parameter}. Available parameters are : {$msg_available_params}");
     }
 
     /**
      * @param string|array $command_parameters
      * @param array $arguments
      * @return mixed
+     * @throws ErrorException
      */
     public function ip_hotspot_users(string|array $command_parameters = 'print', array $arguments = []): mixed
     {
+        $method_name = strtoupper(__FUNCTION__);
         $command = $command_parameters;
         $available_commands = [
             'add', 'comment', 'disable',
@@ -77,19 +86,24 @@ trait Hotspot
         $parameter_differences = array_diff(array_keys($arguments), $available_parameters);
 
         if (in_array($command, $available_commands) && empty($parameter_differences)) {
-            return $this->send($command, 'ip/hotspot/user', $arguments);
+            return $this->send($command, 'ip/hotspot/user', $arguments, $method_name);
         }
 
-        return false;
+        $invalid_parameter = implode(', ', $parameter_differences);
+        $msg_available_params = implode(', ', $available_parameters);
+
+        throw new ErrorException("ERR::{$method_name} : Invalid parameter(s) {$invalid_parameter}. Available parameters are : {$msg_available_params}");
     }
 
     /**
      * @param string|array $command_parameters
      * @param array $arguments
      * @return mixed
+     * @throws ErrorException
      */
     public function ip_hotspot_server_profiles(string|array $command_parameters = 'print', array $arguments = []): mixed
     {
+        $method_name = strtoupper(__FUNCTION__);
         $command = $command_parameters;
         $available_commands = [
             'add', 'edit', 'export',
@@ -114,19 +128,24 @@ trait Hotspot
         $parameter_differences = array_diff(array_keys($arguments), $available_parameters);
 
         if (in_array($command, $available_commands) && empty($parameter_differences)) {
-            return $this->send($command, 'ip/hotspot/profile', $arguments);
+            return $this->send($command, 'ip/hotspot/profile', $arguments, $method_name);
         }
 
-        return false;
+        $invalid_parameter = implode(', ', $parameter_differences);
+        $msg_available_params = implode(', ', $available_parameters);
+
+        throw new ErrorException("ERR::{$method_name} : Invalid parameter(s) {$invalid_parameter}. Available parameters are : {$msg_available_params}");
     }
 
     /**
      * @param string|array $command_parameters
      * @param array $arguments
      * @return mixed
+     * @throws ErrorException
      */
     public function ip_hotspot_servers(string|array $command_parameters = 'print', array $arguments = []): mixed
     {
+        $method_name = strtoupper(__FUNCTION__);
         $command = $command_parameters;
         $available_commands = [
             'add', 'edit', 'export',
@@ -149,19 +168,24 @@ trait Hotspot
         $parameter_differences = array_diff(array_keys($arguments), $available_parameters);
 
         if (in_array($command, $available_commands) && empty($parameter_differences)) {
-            return $this->send($command, 'ip/hotspot', $arguments);
+            return $this->send($command, 'ip/hotspot', $arguments, $method_name);
         }
 
-        return false;
+        $invalid_parameter = implode(', ', $parameter_differences);
+        $msg_available_params = implode(', ', $available_parameters);
+
+        throw new ErrorException("ERR::{$method_name} : Invalid parameter(s) {$invalid_parameter}. Available parameters are : {$msg_available_params}");
     }
 
     /**
      * @param string|array $command_parameters
      * @param array $arguments
      * @return mixed
+     * @throws ErrorException
      */
     public function ip_hotspot_ip_binding(string|array $command_parameters = 'print', array $arguments = []): mixed
     {
+        $method_name = strtoupper(__FUNCTION__);
         $command = $command_parameters;
         $available_commands = [
             'add', 'comment', 'disable',
@@ -185,10 +209,13 @@ trait Hotspot
         $parameter_differences = array_diff(array_keys($arguments), $available_parameters);
 
         if (in_array($command, $available_commands) && empty($parameter_differences)) {
-            return $this->send($command, 'ip/hotspot/ip-binding', $arguments);
+            return $this->send($command, 'ip/hotspot/ip-binding', $arguments, $method_name);
         }
 
-        return false;
+        $invalid_parameter = implode(', ', $parameter_differences);
+        $msg_available_params = implode(', ', $available_parameters);
+
+        throw new ErrorException("ERR::{$method_name} : Invalid parameter(s) {$invalid_parameter}. Available parameters are : {$msg_available_params}");
     }
 
     // TODO - Active

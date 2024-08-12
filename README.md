@@ -8,15 +8,29 @@ This library is using API Client Communicator under PHP Socket, thanks to the re
 
 ---
 
+## Changelog
+
+### **1.3.22-hotfix**
+
+1. Add new Exception : ErrorException;
+2. Add error handler for each method to catch any errors under mikrotik API.
+3. Add new methods :
+   - `ip_dhcp_server_lease()`
+   - `ip_arp()`
+   - `router_switch()`
+   - `router_switch_port()`
+
+---
+
 ## Requirements
 
 - `PHP` : Version 8.0 and up
 - `ext-sockets` : A Socket extension for PHP
-- `RouterOS` : **pre-6.43** and **post-6.43** (**RouterBoard** and **Cloud Router Switch**)
+- `RouterOS` : **pre-6.43** and **post-6.43** (Tested on **RouterBoard** and **Cloud Router Switch** device)
 
 ---
 
-# How to Install
+## How to Install
 
 Under composer, just copy this command to begin add this library into your project.
 
@@ -30,6 +44,8 @@ If you are using Composer Project such Laravel Framework, you can just call the 
 
 
 ```php
+    include 'vendor/autoload.php';
+    
     use Erditya\RouterOSInstance;
     
     $router = new RouterOSInstance();
@@ -63,6 +79,8 @@ If you are using Composer Project such Laravel Framework, you can just call the 
 Or, another way to approach :
 
 ```php
+    include 'vendor/autoload.php';
+    
     use Erditya\RouterOSInstance;
     
     $router = new RouterOSInstance();
@@ -97,47 +115,43 @@ Or, another way to approach :
 List of all methods available in this library at this version :
 
 1. **General**
-    - **connect()**
-    - **is_connected()**
-
+    - `connect()`
+    - `is_connected()`
 
 2. **Interface**
-   - **interface_bridge()**
-   - **interface_bridge_port()**
-   - **interface_bridge_port()**
-   - **interface_ethernet()**
-   - **interface_list()**
-   - **interface_list_member()**
-   - **interface_vlan()**
-
+   - `interface_bridge()`
+   - `interface_bridge_port()`
+   - `interface_bridge_port()`
+   - `interface_ethernet()`
+   - `interface_list()`
+   - `interface_list_member()`
+   - `interface_vlan()`
 
 3. **IP**
-   - **ip_addresses()**
-   - **ip_dhcp_server()**
-   - **ip_dhcp_server_network()**
-   - **ip_dns()**
-   - **ip_firewall_filter()**
-   - **ip_firewall_nat()**
-   - **ip_hotspot_user_profiles()**
-   - **ip_hotspot_users()**
-   - **ip_hotspot_server_profiles()**
-   - **ip_hotspot_servers()**
-   - **ip_hotspot_ip_binding()**
-   - **ip_pool()**
-   - **ip_route()**
-   - **ip_services()**
-
+   - `ip_addresses()`
+   - `ip_dhcp_server()`
+   - `ip_dhcp_server_network()`
+   - `ip_dns()`
+   - `ip_firewall_filter()`
+   - `ip_firewall_nat()`
+   - `ip_hotspot_user_profiles()`
+   - `ip_hotspot_users()`
+   - `ip_hotspot_server_profiles()`
+   - `ip_hotspot_servers()`
+   - `ip_hotspot_ip_binding()`
+   - `ip_pool()`
+   - `ip_route()`
+   - `ip_services()`
 
 4. **System**
-   - **system_identity()**
-   - **system_user_groups()**
-   - **system_users()**
-
+   - `system_identity()`
+   - `system_user_groups()`
+   - `system_users()`
 
 5. **Switch (for Cloud Router Switch only)**
-   - **switch_crs_egress_vlan_tag()**
-   - **switch_crs_mac_based_vlan()**
-   - **switch_crs_port()**
+   - `switch_crs_egress_vlan_tag()`
+   - `switch_crs_mac_based_vlan()`
+   - `switch_crs_port()`
 
 ---
 

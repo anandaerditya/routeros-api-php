@@ -4,7 +4,7 @@ namespace Erditya\Concerns\IP;
 
 use Erditya\Exceptions\ErrorException;
 
-trait Addresses
+trait ARP
 {
     /**
      * @param string|array $command_parameters
@@ -12,7 +12,7 @@ trait Addresses
      * @return mixed
      * @throws ErrorException
      */
-    public function ip_addresses(string|array $command_parameters = 'print', array $arguments = []): mixed
+    public function ip_arp(string|array $command_parameters = 'print', array $arguments = []): mixed
     {
         $method_name = strtoupper(__FUNCTION__);
         $command = $command_parameters;
@@ -23,9 +23,9 @@ trait Addresses
             'set', 'get'
         ];
         $available_parameters = [
-            '.id', 'broadcast', 'comment',
-            'copy-from', 'disabled', 'netmask',
-            'network', 'address', 'interface'
+            '.id', 'address', 'comment',
+            'copy-from', 'disabled', 'interface',
+            'mac-address', 'published'
         ];
 
         # Check if $commandParameters are in array type
@@ -37,7 +37,7 @@ trait Addresses
         $parameter_differences = array_diff(array_keys($arguments), $available_parameters);
 
         if (in_array($command, $available_commands) && empty($parameter_differences)) {
-            return $this->send($command, 'ip/address', $arguments, $method_name);
+            return $this->send($command, 'ip/arp', $arguments, $method_name);
         }
 
         $invalid_parameter = implode(', ', $parameter_differences);

@@ -7,6 +7,7 @@ use Erditya\Concerns\Interface\Ethernet;
 use Erditya\Concerns\Interface\Lists;
 use Erditya\Concerns\Interface\VLAN;
 use Erditya\Concerns\IP\Addresses;
+use Erditya\Concerns\IP\ARP;
 use Erditya\Concerns\IP\DHCPServer;
 use Erditya\Concerns\IP\DNS;
 use Erditya\Concerns\IP\Firewall;
@@ -31,6 +32,7 @@ trait Commands
 
     # IP Section
     use Addresses,
+        ARP,
         DHCPServer,
         DNS,
         Firewall,

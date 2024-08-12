@@ -2,15 +2,19 @@
 
 namespace Erditya\Concerns\Interface;
 
+use Erditya\Exceptions\ErrorException;
+
 trait Ethernet
 {
     /**
      * @param string|array $command_parameters
      * @param array $arguments
      * @return mixed
+     * @throws ErrorException
      */
     public function interface_ethernet(string|array $command_parameters = 'print', array $arguments = []): mixed
     {
+        $method_name = strtoupper(__FUNCTION__);
         $command = $command_parameters;
         $available_commands = [
             'blink', 'cable-test', 'comment',
@@ -39,9 +43,12 @@ trait Ethernet
         }
 
         if (in_array($command, $available_commands) && empty($parameter_differences)) {
-            return $this->send($command, 'interface/ethernet', $arguments);
+            return $this->send($command, 'interface/ethernet', $arguments, $method_name);
         }
 
-        return false;
+        $invalid_parameter = implode(', ', $parameter_differences);
+        $msg_available_params = implode(', ', $available_parameters);
+
+        throw new ErrorException("ERR::{$method_name} : Invalid parameter(s) {$invalid_parameter}. Available parameters are : {$msg_available_params}");
     }
 }
