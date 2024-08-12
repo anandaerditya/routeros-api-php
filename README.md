@@ -10,7 +10,7 @@ This library is using API Client Communicator under PHP Socket, thanks to the re
 
 ## Changelog
 
-### **1.3.22-hotfix**
+### **1.3.22 ( Hotfix )**
 
 1. Add new Exception : ErrorException;
 2. Add error handler for each method to catch any errors under mikrotik API.
