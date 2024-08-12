@@ -3,6 +3,7 @@
     "description": "Mikrotik RouterOS API Communicator Module for PHP",
     "type": "library",
     "require": {
+        "php": "^8.0",
         "evilfreelancer/routeros-api-php": "^1.5"
     },
     "require-dev": {

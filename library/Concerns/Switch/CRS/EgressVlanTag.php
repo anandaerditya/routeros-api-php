@@ -2,15 +2,19 @@
 
 namespace Erditya\Concerns\Switch\CRS;
 
+use Erditya\Exceptions\ErrorException;
+
 trait EgressVlanTag
 {
     /**
      * @param string|array $command_parameters
      * @param array $arguments
      * @return mixed
+     * @throws ErrorException
      */
     public function switch_crs_egress_vlan_tag(string|array $command_parameters = 'print', array $arguments = []): mixed
     {
+        $method_name = strtoupper(__FUNCTION__);
         $command = $command_parameters;
         $available_commands = [
             'add', 'comment', 'disable',
@@ -32,9 +36,12 @@ trait EgressVlanTag
         $parameter_differences = array_diff(array_keys($arguments), $available_parameters);
 
         if (in_array($command, $available_commands) && empty($parameter_differences)) {
-            return $this->send($command, 'interface/ethernet/switch/egress-vlan-tag', $arguments);
+            return $this->send($command, 'interface/ethernet/switch/egress-vlan-tag', $arguments, $method_name);
         }
 
-        return false;
+        $invalid_parameter = implode(', ', $parameter_differences);
+        $msg_available_params = implode(', ', $available_parameters);
+
+        throw new ErrorException("ERR::{$method_name} : Invalid parameter(s) {$invalid_parameter}. Available parameters are : {$msg_available_params}");
     }
 }

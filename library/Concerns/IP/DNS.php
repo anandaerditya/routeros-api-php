@@ -2,15 +2,19 @@
 
 namespace Erditya\Concerns\IP;
 
+use Erditya\Exceptions\ErrorException;
+
 trait DNS
 {
     /**
      * @param string|array $command_parameters
      * @param array $arguments
      * @return mixed
+     * @throws ErrorException
      */
     public function ip_dns(string|array $command_parameters = 'print', array $arguments = []): mixed
     {
+        $method_name = strtoupper(__METHOD__);
         $command = $command_parameters;
         $available_commands = [
             'edit', 'export', 'get',
@@ -32,10 +36,13 @@ trait DNS
         $parameter_differences = array_diff(array_keys($arguments), $available_parameters);
 
         if (in_array($command, $available_commands) && empty($parameter_differences)) {
-            return $this->send($command, 'ip/dns', $arguments);
+            return $this->send($command, 'ip/dns', $arguments, $method_name);
         }
 
-        return false;
+        $invalid_parameter = implode(', ', $parameter_differences);
+        $msg_available_params = implode(', ', $available_parameters);
+
+        throw new ErrorException("ERR::{$method_name} : Invalid parameter(s) {$invalid_parameter}. Available parameters are : {$msg_available_params}");
     }
 
     // TODO - Cache Method

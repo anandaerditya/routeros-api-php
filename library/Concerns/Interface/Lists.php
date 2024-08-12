@@ -2,15 +2,19 @@
 
 namespace Erditya\Concerns\Interface;
 
+use Erditya\Exceptions\ErrorException;
+
 trait Lists
 {
     /**
      * @param string|array $command_parameters
      * @param array $arguments
      * @return mixed
+     * @throws ErrorException
      */
     public function interface_list(string|array $command_parameters = 'print', array $arguments = []): mixed
     {
+        $method_name = strtoupper(__FUNCTION__);
         $command = $command_parameters;
         $available_commands = [
             'add', 'comment', 'edit',
@@ -30,20 +34,25 @@ trait Lists
         }
 
         if (in_array($command, $available_commands) && empty($parameter_differences)) {
-            return $this->send($command, 'interface/list', $arguments);
+            return $this->send($command, 'interface/list', $arguments, $method_name);
         }
 
-        return false;
+        $invalid_parameter = implode(', ', $parameter_differences);
+        $msg_available_params = implode(', ', $available_parameters);
+
+        throw new ErrorException("ERR::{$method_name} : Invalid parameter(s) {$invalid_parameter}. Available parameters are : {$msg_available_params}");
     }
 
     /**
      * @param string|array $command_parameters
      * @param array $arguments
      * @return mixed
+     * @throws ErrorException
      */
     public function interface_list_member(string|array $command_parameters = 'print', array $arguments = []): mixed
     {
-        $command = $command_parameters;
+        $method_name = strtoupper(__FUNCTION__);
+        $command = $command_parameters;;
         $available_commands = [
             'add', 'comment', 'disable',
             'edit', 'enable', 'export',
@@ -63,9 +72,12 @@ trait Lists
         }
 
         if (in_array($command, $available_commands) && empty($parameter_differences)) {
-            return $this->send($command, 'interface/list/member', $arguments);
+            return $this->send($command, 'interface/list/member', $arguments, $method_name);
         }
 
-        return false;
+        $invalid_parameter = implode(', ', $parameter_differences);
+        $msg_available_params = implode(', ', $available_parameters);
+
+        throw new ErrorException("ERR::{$method_name} : Invalid parameter(s) {$invalid_parameter}. Available parameters are : {$msg_available_params}");
     }
 }
