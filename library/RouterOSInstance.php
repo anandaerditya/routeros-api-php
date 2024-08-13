@@ -89,11 +89,46 @@ class RouterOSInstance
 
             if (in_array($method, $non_fetch_command)) {
                 $exec = $this->client?->query($query)->read(true);
-                $err_message = $exec['after'];
+                $err_message = $exec;
 
-                if (array_key_exists('message', $err_message) && !empty($exec['message'])) {
-                    $error_message = $exec['message'];
-                    return throw new ErrorException("ERR::{$method_name} : {$error_message}.");
+                # Catch "after" response
+                if (is_array($exec) && array_key_exists('after', $exec)) {
+                    if (array_key_exists('message', $err_message['after']) && !empty($exec['after']['message'])) {
+                        $error_message = $exec['after']['message'];
+                        return throw new ErrorException("ERR::{$method_name} : {$error_message}.");
+                    }
+                }
+
+                # catch "!trap" response
+                if (is_array($exec) && array_key_exists('!trap', $exec)) {
+                    if (array_key_exists('message', $err_message['!trap']) && !empty($exec['!trap']['message'])) {
+                        $error_message = $exec['!trap']['message'];
+                        return throw new ErrorException("ERR::{$method_name} : {$error_message}.");
+                    }
+                }
+
+                # catch "!re" response
+                if (is_array($exec) && array_key_exists('!re', $exec)) {
+                    if (array_key_exists('message', $err_message['!re']) && !empty($exec['!re']['message'])) {
+                        $error_message = $exec['!re']['message'];
+                        return throw new ErrorException("ERR::{$method_name} : {$error_message}.");
+                    }
+                }
+
+                # catch "!done" response
+                if (is_array($exec) && array_key_exists('!done', $exec)) {
+                    if (array_key_exists('message', $err_message['!done']) && !empty($exec['!done']['message'])) {
+                        $error_message = $exec['!done']['message'];
+                        return throw new ErrorException("ERR::{$method_name} : {$error_message}.");
+                    }
+                }
+
+                # catch "!fatal" response
+                if (is_array($exec) && array_key_exists('!fatal', $exec)) {
+                    if (array_key_exists('message', $err_message['!fatal']) && !empty($exec['!fatal']['message'])) {
+                        $error_message = $exec['!fatal']['message'];
+                        return throw new ErrorException("ERR::{$method_name} : {$error_message}.");
+                    }
                 }
 
                 return true;
