@@ -10,6 +10,12 @@ This library is using API Client Communicator under PHP Socket, thanks to the re
 
 ## Changelog
 
+### **1.4.2 ( Bugfix )**
+
+1. Fix Mikrotik API response message handling under `send()` method;
+
+---
+
 ### **1.3.22 ( Hotfix )**
 
 1. Add new Exception : ErrorException;
