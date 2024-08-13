@@ -89,10 +89,11 @@ class RouterOSInstance
 
             if (in_array($method, $non_fetch_command)) {
                 $exec = $this->client?->query($query)->read(true);
-                $err_message = ucfirst($exec['after']['message']);
+                $err_message = $exec['after'];
 
-                if (!empty($exec)) {
-                    return throw new ErrorException("ERR::{$method_name} : {$err_message}.");
+                if (array_key_exists('message', $err_message) && !empty($exec['message'])) {
+                    $error_message = $exec['message'];
+                    return throw new ErrorException("ERR::{$method_name} : {$error_message}.");
                 }
 
                 return true;
