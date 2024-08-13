@@ -10,6 +10,12 @@ This library is using API Client Communicator under PHP Socket, thanks to the re
 
 ## Changelog
 
+### **1.5.3 ( Bugfix )**
+
+1. Add message handler for `!trap`, `!re`, `!done`, and `!fatal` type under the `send()` method.
+
+---
+
 ### **1.4.2 ( Bugfix )**
 
 1. Fix Mikrotik API response message handling under `send()` method;
