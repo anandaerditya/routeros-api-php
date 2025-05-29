@@ -595,6 +595,7 @@ trait RouterSwitch
             'stats-detail',
             'switch',
             'switch-all-ports',
+            'src-mac-address',
             'terse',
             'tx-1024-1518',
             'tx-1024-max',
